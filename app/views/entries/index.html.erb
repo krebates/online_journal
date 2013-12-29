@@ -3,11 +3,15 @@
 <% @entries.each do |entry| %>
   Title: <%= entry.title %><br/><br/>
   Post: <%= entry.post %><br/><br/>
+  Category: <%= entry.category.name if entry.category%><br/><br/>
+  Date: <%= entry.created_at.strftime("%B %d, %Y") %><br/>
 
 <%= link_to "Delete information", entry_path(entry), data: { confirm: "Are you sure?" }, method: :delete %>
+<%= link_to "Edit information", edit_entry_path(entry)%>
+
 
   <br/><hr><hr>
 
-<%= link_to "New Entry", new_entry_path %>
+
 
 <% end %>
